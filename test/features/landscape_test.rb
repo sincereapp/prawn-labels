@@ -17,6 +17,6 @@ describe "Landscape" do
       pdf.text name
     end
 
-    File.exists?(pdf_path).must_equal true
+    File.exist?(pdf_path).must_equal true
   end
 end

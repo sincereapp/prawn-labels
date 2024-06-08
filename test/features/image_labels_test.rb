@@ -16,9 +16,9 @@ describe "Images" do
     Prawn::Labels.generate(pdf_path, fancy_names,
                            :type => "Avery5160") do |pdf, name|
       pdf.text name
-      pdf.image open("http://jordanbyron.com/me.png")
+      pdf.image URI.open("http://jordanbyron.com/me.png")
     end
 
-    File.exists?(pdf_path).must_equal true
+    File.exist?(pdf_path).must_equal true
   end
 end
