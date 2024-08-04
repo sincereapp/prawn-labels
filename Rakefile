@@ -1,5 +1,6 @@
 require "rubygems"
 require "rubygems/package_task"
+require 'rake/testtask'
 
 spec = Gem::Specification.load "prawn-labels.gemspec"
 
@@ -17,3 +18,11 @@ task :console do
   ARGV.clear
   IRB.start
 end
+
+# Creates and sets the default task.
+Rake::TestTask.new do |t|
+  t.libs << 'test'
+  t.pattern = 'test/**/*_test.rb'
+end
+
+task default: :test
